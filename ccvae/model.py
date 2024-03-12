@@ -1,5 +1,3 @@
-#@markdown Implement the autoencoder model.
-
 from typing import Tuple
 from dataclasses import dataclass
 
