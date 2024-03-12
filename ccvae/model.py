@@ -338,7 +338,7 @@ class Autoencoder(nn.Module):
     >>> module = Autoencoder(configuration=configuration)
     >>> x = torch.randn((1, 3, 256, 256))
     >>> c = torch.randn((1, 1024))
-    >>> x, z_mean, z_log_variance = module.encode(x, c)
+    >>> x, posterior = module.encode(x, c)
     """
 
     def __init__(self, configuration: AutoencoderConfiguration) -> None:
