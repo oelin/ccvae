@@ -1,3 +1,3 @@
-# CCVAE
+# CoCoVAE
 
-Conditional VAEs are often implemented by concatenating the class label to the encoder and decoder activations within an MLP-based architecture. However, convolutional architectures are often superior. To this end, we present a fully convolutional conditional VAE. Conditioning is implemented via DiT-style modulation. Preliminary experiments on MNIST demonstrate the model's ability to perform analogical inference and other behaviours. We find that `layers=3, regularization_weight=0.5` are suitable hyperparameters for this task.
+Conditional VAEs are typically implemented by concatenating the class label to activations within encoder and/or decoder MLP layers. However, fully convolutional architectures are generally preferable for image related tasks. To this end, we present CoCoVAE, a fully convolutional conditional VAE that features DiT-style affine conditioning as apposed to concatenation. Preliminary experiments on MNIST show that the model is capable of analogical inference and related conditional tasks.
