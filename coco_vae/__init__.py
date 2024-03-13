@@ -1,9 +1,19 @@
+"""CoCoVAE."""
+
 from typing import Tuple
 from dataclasses import dataclass
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
+
+__ALL__ = [
+    'Autoencoder',
+    'AutoencoderConfiguration',
+    'GaussianDistribution',
+    'vae_loss',
+]
 
 
 class ResidualBlock(nn.Module):
@@ -120,8 +130,7 @@ class DownsampleBlock(nn.Module):
             stride=2,
             padding=1,
         )
-
-    
+        
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Forward the module.
         
@@ -408,8 +417,7 @@ class Autoencoder(nn.Module):
             ) for i in reversed(range(1, configuration.layers + 1))
         ])
 
-        # Zero initialize conditioning parameters.
-        # TODO
+        # TODO: Zero initialize conditioning parameters.
     
     def encode(self, x: torch.Tensor, c: torch.Tensor) -> GaussianDistribution:
         """Encode a tensor.
