@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "coco-vae"
+version = "0.1.0"
+description = ""
+authors = ["Oelin"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+einops = "^0.7.0"
+torch = "^2.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
