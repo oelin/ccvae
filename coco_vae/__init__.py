@@ -469,7 +469,7 @@ class Autoencoder(nn.Module):
         for decoder_block in self.decoder_blocks:
             x = decoder_block(x, c)
         
-        x = F.sigmoid(self.conv_4(x))
+        x = self.conv_4(x)
 
         return x
     
@@ -533,7 +533,7 @@ def vae_loss(
 ) -> torch.Tensor:
     """VAE loss."""
 
-    reconstruction_loss = F.binary_cross_entropy(reconstruction, input)
+    reconstruction_loss = F.mse_loss(reconstruction, input)
     regularization_loss = (
         posterior.variance
         - posterior.mean.square()
